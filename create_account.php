@@ -1,3 +1,7 @@
+<?php
+	include('db/signin.php');
+?>
+
 <?php include('head.php'); ?>
 
 <form action="delivery_choice.php">

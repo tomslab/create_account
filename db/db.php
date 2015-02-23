@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 //echo "Connected successfully";
 
-$email = $_POST["email"];
+/*$email = $_POST["email"];
 $deliveryChoice = $_POST["deliveryChoice"];
 $deliveryTo = $_POST["deliveryTo"];
 $addressLine1 = $_POST["addressLine1"];
@@ -80,6 +80,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
+$conn->close();*/
 
 ?>
