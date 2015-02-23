@@ -1,4 +1,7 @@
-<?php include('head.php'); ?>
+<?php
+	include('db/updatePayment.php');
+	include('head.php');
+?>
 
 <div class="panel panel-default">
 	<div class="panel-heading">
@@ -62,7 +65,9 @@
 	</ul>
 </div>
 
-<div class="panel panel-default">
+<?php include('db/getDelivery.php'); ?>
+
+<!-- <div class="panel panel-default">
 	<div class="panel-heading">
 		<h4 class="panel-title">Delivery</h4>
 	</div>
@@ -77,16 +82,18 @@
 			</address>
 		</li>
 	</ul>
-</div>
+</div> -->
 
-<div class="panel panel-default">
+<?php include('db/getPayment.php'); ?>
+
+<!-- <div class="panel panel-default">
 	<div class="panel-heading">
 		<h4 class="panel-title"><i class="fa fa-lock"></i> Payment</h4>
 	</div>
 	<div class="panel-body">
 		Visa ending in xxxx <a class="pull-right" href="#">edit</a>
 	</div>
-</div>
+</div> -->
 
 
 <form action="complete.php">

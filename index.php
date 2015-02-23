@@ -1,4 +1,4 @@
-<?php include('cookie.php'); ?>
+<?php include('db/cookie.php'); ?>
 
 <?php include('head.php'); ?>
 
