@@ -1,8 +1,4 @@
-<?php
-	$cookie_name = "create_account_cookie";
-	$cookie_value = uniqid();
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-?>
+<?php include('cookie.php'); ?>
 
 <?php include('head.php'); ?>
 

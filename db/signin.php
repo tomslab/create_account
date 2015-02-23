@@ -1,10 +1,14 @@
 <?php 
 
+$cookie_name = 'create_account_cookie';
+$session = $_COOKIE[$cookie_name];
+
 $email = $_POST["email"];
 
 if( $email != '' ) {
 
 	include('db/db.php');
+
 	$emailCheck = "SELECT id from checkout WHERE email = '$email'";
 	$result = $conn->query($emailCheck);
 	if ($result->num_rows > 0) {
