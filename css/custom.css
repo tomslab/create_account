@@ -1,0 +1,59 @@
+.panel-heading h3 {
+	display: inline-block;
+	margin-left: 1em;
+}
+
+#addressResult input:nth-child(n) {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-width: 0;
+}
+
+#addressResult input:first-child {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+#addressResult input:last-child {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-width: 1px;
+}
+
+#expiryMMcontainer {
+	padding-right: 0;
+}
+
+#expiryMM {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#expiryYYcontainer {
+	padding-left: 0;
+}
+
+#expiryYY {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left-width: 0;
+}
+
+.productName, .productPrice {
+	line-height: 1.5em;
+	margin: 0;
+}
+
+.productPrice {
+	color: #337ab7;
+}
+
+.quantity, .size {
+	margin-top: 5px;
+}
+
+.list-group-item {
+	padding: 15px;
+}

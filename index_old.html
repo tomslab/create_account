@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+	<title>Create account checkout</title>
+	<link rel="shortcut icon" href="../favicon.ico"> 
+	<link rel="stylesheet" type="text/css" href="css/_bootstrap.css.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css" />
+</head>
+<body>
+	<div id="secretSelect" style="display:none;">hello</div>
+	<div class="container demo-1">
+		<header>
+			<h2>Natural Language Checkout <span>with custom input elements</span></h2>	
+		</header>
+		<div class="main clearfix">
+			<form id="nl-form" class="nl-form" action="complete.php" method="post">
+
+				<section id="products">
+					<h5>Basket</h5>
+					My email address is
+					<input id="email" name="email" type="email" value="" placeholder="hello@example.com" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"><br />
+					<!-- I 
+					<select id="accountCheck" onkeyup="accountCheck(this.id)">
+						<option value="1">have</option>
+						<option value="2" selected>don't have</option>
+					</select>
+					an account
+					<span id="password">with the password<input id="password" type="password" value="" placeholder="password"></span> -->
+					and I would like to purchase:
+					<ul>
+						<li>
+							<img class="pull-left" src="img/sonos_play1_black.jpg" />
+							<div class="pull-right">
+								<select id="prod1quantity">
+									<option value="One">One</option>
+									<option value="Two" selected>Two</option>
+									<option value="Three">Three</option>
+									<option value="Four">Four</option>
+								</select>
+								<span class="itemName">Sonos Play:1</span> WiFi speakers <span class="price">(&#163;169)</span>
+							</div>
+						</li>
+						<li>
+							<img class="pull-left" src="img/nike_revolution_2.jpg" />
+							<div class="pull-right">
+							<select id="prod2quantity">
+								<option value="One pair" selected>One pair</option>
+								<option value="Two pairs">Two pairs</option>
+								<option value="Three pairs">Three pairs</option>
+								<option value="Four pairs">Four pairs</option>
+							</select>
+							of <span class="itemName">Nike Revolution 2</span> men's running shoes in size
+							<select id="prod2size">
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11" selected>11</option>
+								<option value="12">12</option>
+							</select>
+							<span class="price">(&#163;49)</span>
+							</div>
+						</li>
+					</ul>
+					<div class="nl-overlay"></div>
+				</section>
+
+				<!-- <section id="products">
+					<h5>Basket</h5>
+					My email address is
+					<input id="email" type="email" value="" placeholder="hello@example.com" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"><br />
+ -->					<!-- I 
+					<select id="accountCheck" onkeyup="accountCheck(this.id)">
+						<option value="1">have</option>
+						<option value="2" selected>don't have</option>
+					</select>
+					an account
+					<span id="password">with the password<input id="password" type="password" value="" placeholder="password"></span> -->
+					<!-- and I would like to purchase:
+					<ul>
+						<li>
+							<img class="img-half" src="img/sonos_play1_black.jpg" />
+							<select id="prod1quantity">
+								<option value="One">One</option>
+								<option value="Two" selected>Two</option>
+								<option value="Three">Three</option>
+								<option value="Four">Four</option>
+							</select>
+							Sonos Play:1 WiFi speakers <span class="price">(&#163;169)</span><div class="nl-overlay"></div>
+						</li>
+						<li>
+							<img class="img-half" src="img/nike_revolution_2.jpg" />
+							<select id="prod2quantity">
+								<option value="One pair" selected>One pair</option>
+								<option value="Two pairs">Two pairs</option>
+								<option value="Three pairs">Three pairs</option>
+								<option value="Four pairs">Four pairs</option>
+							</select>
+							of Nike Revolution 2 men's running shoes in size
+							<select id="prod2size">
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11" selected>11</option>
+								<option value="12">12</option>
+							</select>
+							<span class="price">(&#163;49)</span>
+							<div class="nl-overlay"></div>
+						</li>
+					</ul>
+					<div class="nl-overlay"></div>
+				</section> -->
+
+				<section id="delivery">
+					<h5>Delivery</h5>
+					I would like my items will be delivered<br />
+					<select id="deliveryChoice" name="deliveryChoice">
+						<option value="tomorrow ( +&#163;5.90 )">tomorrow ( +&#163;5.90 )</option>
+						<option value="in 4-5 days ( +&#163;4.50 )" selected>in 4-5 days ( +&#163;4.50 )</option>
+						<option value="within 14 days ( free )">within 14 days ( free )</option>
+						<option value="on ( +&#163;8.00)">on ( +&#163;8.00)</option>
+					</select>
+					<br />to my
+					<select id="deliveryTo" name="deliveryTo">
+						<option value="home" selected>home</option>
+						<option value="work">work</option>
+						<option value="neighbour">neighbour</option>
+					</select>
+					at:<br />
+					<div style="margin:10px 0px 20px;">
+						<input id="addressLine1" name="addressLine1" type="text" value="" placeholder="address line 1" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Address line 1, for example: <em>742 Evergreen Terrace</em>"/><br />
+						<input id="addressLine2" name="addressLine2" type="text" value="" placeholder="address line 2" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Address line 2, for example: <em>Green Lane</em>"/><br />
+						<input id="town" name="town" type="text" value="" placeholder="town" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Town, for example: <em>Springfield</em>"/><br />
+						<input id="county" name="county" type="text" value="" placeholder="county" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="County, example: <em>Norfolk</em>"/><br />
+						<input id="postcode" name="postcode" type="text" value="" placeholder="postcode" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Postcode, example: <em>LE12 3TA</em>"/><br />
+					</div>
+					If there are any issue please contact me on 
+					<input id="phoneNumber" name="phoneNumber" type="tel" value="" placeholder="phone number" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Phone number, example: <em>07796427270</em>"/><br />
+
+					<div class="nl-overlay"></div>
+				</section>
+
+				<section id="payment">
+					<h5>Payment <span class="badge" style="float:right; margin-top: 10px;"><i class="fa fa-lock"></i> Secure Pay</span></h5>
+					I will pay using my
+					<select id="paymentType" name="paymentType">
+						<option value="credit card" selected>credit card</option>
+						<option value="PayPal account">PayPal account</option>
+						<option value="Bitcoin">Bitcoin</option>
+					</select>, the card number is
+					<input id="cardNumber" name="cardNumber" type="text" value="" placeholder="1111 2222 3333 4444" onkeyup="cardSpacer(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="1111 2222 3333 4444"/>
+					and name on my card is
+					<input id="cardName" name="cardName" type="text" value="" placeholder="MR J SMITH" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="Name on card, example: <em>MR J SMITH</em>"/>
+					This card expires on
+					<select id="mm" name="expiryMM">
+						<option value="MM" selected>MM</option>
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="10">11</option>
+						<option value="10">12</option>
+					</select>
+					/
+					<select id="yy" name="expiryYY">
+						<option value="YY" selected>YY</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+					</select>
+					and has the CVV
+					<input id="cvv" name="cvv" type="tel" value="" placeholder="123" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="CVV, example: <em>117</em>"/>
+					<span class="small price">(reverse of card)</span>
+					<div class="nl-overlay"></div>
+				</section>
+
+				<section id="extra">
+					<h5>One last thing...</h5>
+					Make things faster for next time by entering a password!<br />
+					<!-- Add validation -->	<input id="createPassword" name="createPassword" type="password" value="" placeholder="" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)" data-subline="password"><br /><br />
+					<div class="small">
+						I
+						<select id="emailPrimary" name="emailPrimary">
+							<option value="would" selected>would</option>
+							<option value="would not">would not</option>
+						</select>
+						like to recieve emails about future products and services from this company<br />
+						I
+						<select id="emailThird" name="emailThird">
+							<option value="would" selected>would</option>
+							<option value="would not">would not</option>
+						</select>
+						like to recieve emails from selected third parties
+						<div class="nl-overlay"></div>
+					</div>
+					<div class="nl-overlay"></div>
+				</section>
+
+				<div class="nl-submit-wrap">
+					<button class="nl-submit" type="submit">Complete Purchase</button>
+				</div>
+				<div class="nl-overlay"></div>
+			</form>
+		</div>
+	</div><!-- /container -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/custom.js"></script>
+	
+	<!-- Main validation script -->
+	<script src="js/validation/validation.js"></script>
+
+	<!-- Email -->
+	<script src="js/validation/email.js"></script>
+
+	<!-- Address -->
+	<script src="js/validation/address.js"></script>
+
+	<!-- Cards -->
+	<script src="js/card.js"></script>
+	<script src="js/jquery.creditCardValidator.js"></script>
+
+	<!-- Payment -->
+	<script src="js/validation/payment.js"></script>
+
+	<!-- Special characters -->
+	<script src="js/validation/specialCharacters.js"></script>
+
+</body>
+</html>
