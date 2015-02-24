@@ -29,3 +29,7 @@
             </div>
 
             <?php include('progress.php'); ?>
+
+            <div id="errors">
+                Theres a bloody error
+            </div>

@@ -132,6 +132,7 @@ function fieldCheck(id) {
 	switch( id ) {
 		case 'email': // Is the id email?
 			if( emailOut === true ) {
+				window.console.log('foo');
 				emailValidator( id, value );
 			}
 			break;
@@ -187,6 +188,7 @@ function fieldCheck(id) {
 			}
 			break;
 		default:
+			window.console.log('bar');
 			break;
 			//console.log('Default has been triggered!')
 	}
@@ -236,20 +238,20 @@ function validationFeedback(id,result,message) {
 		}
 		passer = false; // Sets email pass to false to stop other checks and success on this run
 		//console.log(passer);
-		$( '#' + id ).removeClass('has-success').addClass('has-error'); // Sets parent div state to allow for style changes
-		/*$( '#' + id + '-error' ).text(message); // Applies the error message
-		$( '#' + id + '-error' ).css('display','block'); // Makes the error visible to the user
+		$( '#' + id ).parent('div').removeClass('has-success').addClass('has-error'); // Sets parent div state to allow for style changes
+		$( '#errors').text(message); // Applies the error message
+		$( '#errors' ).css('display','block'); // Makes the error visible to the user
 		if( id != 'expiry' ) {
 			$( '#' + id + 'Status' ).replaceWith( $( '<i id="' + id + 'Status" class="fa fa-exclamation form-control-feedback"></i>' ) ); // Adds exclamation marker when there is a failure
-		}*/
+		}
 		continueCheck();
 	} else if ( result === 'pass' ) {
-		$( '#' + id ).removeClass('has-error').addClass('has-success'); // Sets parent div state to allow for style changes
-		/*$( '#' + id + '-error' ).text(''); // Removes any error text
-		$( '#' + id + '-error' ).css('display','none'); // Hides the error container
+		$( '#' + id ).parent('div').removeClass('has-error').addClass('has-success'); // Sets parent div state to allow for style changes
+		$( '#errors' ).text(''); // Removes any error text
+		$( '#errors' ).css('display','none'); // Hides the error container
 		if( id != 'expiry' ) {
 			$( '#' + id + 'Status' ).replaceWith( $( '<i id="' + id + 'Status" class="fa fa-check form-control-feedback"></i>' ) ); // Adds check marker when the form validates correctly
-		}*/
+		}
 		continueCheck();
 	}
 }
@@ -259,8 +261,8 @@ function validationFeedback(id,result,message) {
 
 function continueCheck() {
 	if( !emailPass || !addressLine1Pass || !addressLine2Pass || !townPass  || !countyPass || !postcodePass || !phoneNumberPass || !cardNumberPass || !cardNamePass || !expiryPass || !cvvPass ) {
-		$( '#continue' ).attr('disabled',true); // Disables the continue button on the form
+		$( '.continue' ).attr('disabled',true); // Disables the continue button on the form
 	} else {
-		$( '#continue' ).attr('disabled',false); // Enables the continue button
+		$( '.continue' ).attr('disabled',false); // Enables the continue button
 	}
 }
