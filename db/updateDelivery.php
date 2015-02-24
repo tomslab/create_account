@@ -20,9 +20,9 @@ if( $line1 != '' ) {
 	WHERE cookie = '$session'";
 	
 	if ($conn->query($sql) === TRUE) {
-		echo "New record created successfully <br>";
+		//echo "New record created successfully <br>";
 	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
+		//echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	if( $line2!='' ) {
@@ -40,7 +40,7 @@ if( $line1 != '' ) {
 	$conn->close();
 
 } else {
-	echo 'email was null';
+	//echo 'email was null';
 }
 
 ?>

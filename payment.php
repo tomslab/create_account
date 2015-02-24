@@ -1,6 +1,7 @@
 <?php
 include('db/updateDelivery.php');
 include('head.php');
+
 ?>
 
 <form action="review.php" method="post">

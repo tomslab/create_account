@@ -10,12 +10,14 @@ if(!isset($_COOKIE[$cookie_name])) { // If cookie isn't set then set it and inse
 	include('db.php');
 	$recordCookie = "INSERT INTO checkout (cookie) VALUES ('$cookie_value')";
 	if ($conn->query($recordCookie) === TRUE) {
-		echo "New record created successfully <br>";
+		//echo "New record created successfully <br>";
 	} else {
-		echo "Error: " . $recordCookie . "<br>" . $conn->error;
+		//echo "Error: " . $recordCookie . "<br>" . $conn->error;
 	}
 } else {
-	echo "Value is: " . $_COOKIE[$cookie_name]; // If the cookie already exists then print it out
+	//echo "Value is: " . $_COOKIE[$cookie_name]; // If the cookie already exists then print it out
 }
+
+$session = $_COOKIE[$cookie_name];
 
 ?>

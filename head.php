@@ -27,3 +27,5 @@
             <div class="header">
                 <h3 class="text-muted">Create Account Checkout</h3>
             </div>
+
+            <?php include('progress.php'); ?>

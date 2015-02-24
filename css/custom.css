@@ -57,3 +57,24 @@
 .list-group-item {
 	padding: 15px;
 }
+
+#progress {
+	//font-size: 0.8em;
+	text-align: center;
+	margin: 30px 0 20px;
+	padding: 0 0 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+#progress .label {
+	font-size: 1.2em;
+	border-radius: 50%;
+}
+
+#progress .current p {
+	font-weight: 700;
+}
+
+#progress p {
+	margin: 10px 0;
+}
