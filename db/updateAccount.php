@@ -6,7 +6,7 @@ $session = $_COOKIE[$cookie_name];
 $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
 $email = $_POST["email"];
-$userPassword = $_POST["createPassword"];
+$userPassword = $_POST["password"];
 
 if( $email != '' ) {
 

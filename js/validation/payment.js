@@ -7,10 +7,10 @@ function cardNumberValidator( id, value ) {
 	}
 
 	if( cardNumberPass === true ) {
-    	specialCharacterCheck(value);
-    	if( specialCharacterResult === true ) {
-    		validationFeedback(id,'fail','Your card cannot contain special characters');
-    	}
+		specialCharacterCheck(value);
+		if( specialCharacterResult === true ) {
+			validationFeedback(id,'fail','Your card cannot contain special characters');
+		}
 	}
 
 	if( cardNumberPass === true ) {
@@ -37,10 +37,10 @@ function cardNameValidator( id, value ) {
 	}
 
 	if( cardNamePass === true ) {
-    	specialCharacterCheck(value);
-    	if( specialCharacterResult === true ) {
-    		validationFeedback(id,'fail','The name on the card cannot contain special characters');
-    	}
+		specialCharacterCheck(value);
+		if( specialCharacterResult === true ) {
+			validationFeedback(id,'fail','The name on the card cannot contain special characters');
+		}
 	}
 
 	if( cardNamePass === true ) {
@@ -56,65 +56,99 @@ function cardNameValidator( id, value ) {
 	}
 }
 
-function expiryValidator( id, value ) {
-	expiryPass = true;
-	expiryLength = value.length; // Get address line 1 full length
+function expiryMMValidator( id, value ) {
+	expiryMMPass = true;
+	expiryMMLength = value.length; // Get address line 1 full length
 	
 	date = new Date(); // Get date
 
 	thisYear = date.getFullYear(); // Get this year
+	thisYear = thisYear.toString().substr(2,2);
 	thisMonth = date.getMonth(); // Get this day
 	thisMonth = thisMonth + 1; // Add 1 as Jan = 0 but month input sets Jan to 1
 
-	var selectedYear = value.substr(0,4); // Get year section of the selected date (ie 2018)
-	selectedYear = Number(selectedYear); // Convert to number
+	yearValue = $( '#expiryYY' ).val();
 
-	if( selectedYear < thisYear ) { // If selected year is less than current year
-		validationFeedback(id,'fail','The year you have entered is less than this year');
-	} else if( selectedYear === thisYear ) { // If selected year equals current year
-		var selectedMonth = value.substr(5,2); // Get month section of the selected date (ie 05)
-		selectedMonth = Number(selectedMonth); // Convert to number
-		if( selectedMonth < thisMonth ) { // If selected month is less than current month
-			validationFeedback(id,'fail','The month you have entered has past');
+	if( value === '' ) {
+		validationFeedback(id,'fail','Your card expiry date is required');
+	} else if( yearValue != '' ) {
+		if( yearValue <= thisYear ) {
+			if( value < thisMonth ) { // If selected month is less than current month
+				validationFeedback(id,'fail','The month you have entered has past');
+			}
 		}
+	} else if( value > 12 ) {
+		validationFeedback(id,'fail','Please enter a value between 1 and 12');
 	}
 
-	if( expiryPass === true ) { // If nothing has failed then this is triggered to show success
+	if( expiryMMPass === true ) { // If nothing has failed then this is triggered to show success
 		validationFeedback(id,'pass');
 	}
 }
 
-function cvvValidator( id, value ) {
-	cvvPass = true;
-	cvvLength = value.length;
+function expiryYYValidator( id, value ) {
+	expiryYYPass = true;
+	expiryYYLength = value.length; // Get address line 1 full length
+	
+	date = new Date(); // Get date
 
-	if( cvvLength === 0 ) { // CVV must be present
-		validationFeedback(id,'fail','The CVV is required');
+	thisYear = date.getFullYear(); // Get this year
+	thisYear = thisYear.toString().substr(2,2);
+
+	var selectedYear = value.substr(0,4); // Get year section of the selected date (ie 2018)
+	selectedYear = Number(selectedYear); // Convert to number
+
+	monthValue = $( '#expiryMM' ).val();
+
+	if( value === '' ) {
+		validationFeedback(id,'fail','Your card expiry date is required');
+	} else if( selectedYear < thisYear ) { // If selected year is less than current year
+		validationFeedback(id,'fail','The year you have entered has already passed');
 	}
 
-	if( cvvPass === true ) {
+	expiryMMValidator( 'expiryMM', monthValue);
+
+	if( expiryYYPass === true ) { // If nothing has failed then this is triggered to show success
+		validationFeedback(id,'pass');
+	}
+}
+
+function cscValidator( id, value ) {
+	cscPass = true;
+	cscLength = value.length;
+
+	if( cscLength === 0 ) { // csc must be present
+		validationFeedback(id,'fail','The CSC is required');
+	}
+
+	if( cscPass === true ) {
 		onlyNumbers = /(^[+]?\d*$)/g; // http://www.regxlib.com/REDetails.aspx?regexp_id=257
 		onlyNumbersResult = onlyNumbers.test(value);
 		if( onlyNumbersResult === false ) {
-			validationFeedback(id,'fail','Only numbers are allowed in the CVV code');
+			validationFeedback(id,'fail','Only numbers are allowed in the CSC code');
 		}
 	}
 
-	if( cvvPass === true ) {
+	if( cscPass === true ) {
+		window.console.log('zoop');
 		$( '#cardNumber' ).validateCreditCard( function( result ) {
 			if( result.card_type != null ) {
 				if( result.card_type.name === 'amex' ) {
-					if( cvvLength != 4 ) {
-						validationFeedback(id,'fail','American Express cards have 4 digit CVV codes');
-						//console.log('no');
+					if( cscLength != 4 ) {
+						validationFeedback(id,'fail','American Express cards have 4 digit CSC codes');
+						window.console.log('no');
 					}
 				} else {
-					if( cvvLength != 3 ) {
-						validationFeedback(id,'fail','Your card must have a 3 digit CVV code');
-						//console.log('else');
+					if( cscLength != 3 ) {
+						validationFeedback(id,'fail','Your card must have a 3 digit CSC code');
+						window.console.log('else');
 					}
 				}
 			}
 		});
+	}
+
+	if( cscPass === true ) { // If nothing has failed then this is triggered to show success
+		validationFeedback(id,'pass');
 	}
 }

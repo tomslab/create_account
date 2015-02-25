@@ -21,7 +21,7 @@ echo '<div class="panel-heading">';
 echo '<h4 class="panel-title"><i class="fa fa-lock"></i> Payment</h4>';
 echo '</div>';
 echo '<div class="panel-body">';
-echo 'Visa ending in ' . $review_card_number . ' <a class="pull-right" href="#">edit</a>';
+echo 'Visa ending in ' . $review_card_number . ' <a class="pull-right" href="payment.php">edit</a>';
 echo '</div>';
 echo '</div>';
 

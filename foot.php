@@ -29,13 +29,13 @@
 	</script>
 
 	<footer style="margin: 2em 1em 1em;">
-		<p><a href="index.php">home</a></p>
+		<!-- <p><a href="index.php">home</a></p>
 		<p><a href="create_account.php">create account</a></p>
 		<p><a href="delivery_choice.php">delivery choice</a></p>
 		<p><a href="find_address.php">find address</a></p>
 		<p><a href="payment.php">payment</a></p>
 		<p><a href="review.php">review</a></p>
-		<p><a href="complete.php">complete</a></p>
+		<p><a href="complete.php">complete</a></p></footer> -->
 	</footer>
 
 </body>

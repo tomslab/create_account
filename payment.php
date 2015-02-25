@@ -30,7 +30,7 @@ include('head.php');
 
 	<div class="form-group">
 		<label for="cardNumber">Card Number</label>
-		<input type="tel" class="form-control input-lg" id="cardNumber" name="cardNumber" placeholder="1111 2222 3333 4444"
+		<input type="tel" class="form-control input-lg" id="cardNumber" name="cardNumber" placeholder="1111 2222 3333 4444" onkeyup="cardSpacer(this.id)" onfocusout="fieldCheckOut(this.id)" 
 		<?php
 		echo 'value="';
 		if( $card_number!='' ) {
@@ -42,7 +42,7 @@ include('head.php');
 
 	<div class="form-group">
 		<label for="cardName">Name on Card</label>
-		<input type="text" class="form-control input-lg" id="cardName" name="cardName" placeholder="MRS J DOE"
+		<input type="text" class="form-control input-lg" id="cardName" name="cardName" placeholder="MRS J DOE" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
 		<?php
 		echo 'value="';
 		if( $card_name!='' ) {
@@ -57,7 +57,7 @@ include('head.php');
 			<label for="expiry">Expiry Date</label>
 			<div class="row">
 				<div id="expiryMMcontainer" class="col-xs-6">
-					<input type="tel" class="form-control input-lg" id="expiryMM" name="expiryMM" placeholder="MM"
+					<input type="tel" class="form-control input-lg" id="expiryMM" name="expiryMM" placeholder="MM" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
 					<?php
 					echo 'value="';
 					if( $card_expiry_mm!='' ) {
@@ -67,7 +67,7 @@ include('head.php');
 					?>
 				</div>
 				<div id="expiryYYcontainer" class="col-xs-6">
-					<input type="tel" class="form-control input-lg" id="expiryYY" name="expiryYY" placeholder="YY"
+					<input type="tel" class="form-control input-lg" id="expiryYY" name="expiryYY" placeholder="YY" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
 					<?php
 					echo 'value="';
 					if( $card_expiry_yy!='' ) {
@@ -80,7 +80,7 @@ include('head.php');
 		</div>
 		<div class="col-xs-5 col-xs-offset-1">
 			<label for="csc">CSC</label>
-			<input type="tel" class="form-control input-lg" id="csc" name="csc" placeholder="123"
+			<input type="tel" class="form-control input-lg" id="csc" name="csc" placeholder="123" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
 			<?php
 			echo 'value="';
 			if( $card_csc!='' ) {
@@ -91,7 +91,7 @@ include('head.php');
 		</div>
 	</div>
 
-	<button type="submit" class="btn btn-success btn-block btn-lg">Continue</button>
+	<button type="submit" class="btn btn-success btn-block btn-lg continue">Continue</button>
 
 </form>
 

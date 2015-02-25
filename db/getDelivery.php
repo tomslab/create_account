@@ -52,18 +52,20 @@ echo '<div class="panel-heading">';
 echo '<h4 class="panel-title">Delivery</h4>';
 echo '</div>';
 echo '<div class="panel-body">';
-echo '<strong>' . $delivery_choice . '</strong> (&#163;5.95) <a class="pull-right" href="#">edit</a>';
+echo '<strong>' . $delivery_choice . '</strong> (&#163;5.95) <a class="pull-right" href="delivery_choice.php">edit</a>';
 echo '</div>';
 echo '<ul class="list-group">';
 echo '<li class="list-group-item">';
 echo '<address style="margin-bottom: 0;">';
-echo '<strong>' .  $first_name . ' ' . $last_name . '</strong><br />';
+echo '<strong>' .  $first_name . ' ' . $last_name . '</strong>';
+echo '<a class="pull-right" href="create_account.php">edit</a>';
+echo '<br />';
 if( $line2!='' ) {
-	echo $line1 . ', ' . $line2 . ', ' . $town . ', ' . $county . ', ' . $postcode;
+	echo $line1 . ', ' . $line2 . ',<br /> ' . $town . ', ' . $county . ', ' . $postcode;
 } else {
 	echo $line1 . ', ' . $town . ', ' . $county . ', ' . $postcode;
 }
-echo '<a class="pull-right" href="#">edit</a>';
+echo '<a class="pull-right" href="find_address.php">edit</a>';
 echo '<div class="clearfix"></div>';
 echo '</address>';
 echo '</li>';

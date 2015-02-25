@@ -96,49 +96,59 @@ include('head.php');
 	</select>
 
 	<div class="form-group" id="addressResult">
-		<input type="text" class="form-control input-lg" id="line1" name="line1" placeholder="Line 1"
-		<?php
-		echo 'value="';
-		if( $line1!='' ) {
-			echo $line1;
-		}
-		echo '">';
-		?>
-		<input type="text" class="form-control input-lg" id="line2" name="line2" placeholder="Line 2"
-		<?php
-		echo 'value="';
-		if( $line2!='' ) {
-			echo $line2;
-		}
-		echo '">';
-		?>
-		<input type="text" class="form-control input-lg" id="town" name="town" placeholder="Town"
-		<?php
-		echo 'value="';
-		if( $town!='' ) {
-			echo $town;
-		}
-		echo '">';
-		?>
-		<input type="text" class="form-control input-lg" id="county" name="county" placeholder="County"
-		<?php
-		echo 'value="';
-		if( $county!='' ) {
-			echo $county;
-		}
-		echo '">';
-		?>
-		<input type="text" class="form-control input-lg" id="postcode" name="postcode" placeholder="Postcode"
-		<?php
-		echo 'value="';
-		if( $postcode!='' ) {
-			echo $postcode;
-		}
-		echo '">';
-		?>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="addressLine1" name="line1" placeholder="Line 1" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
+			<?php
+			echo 'value="';
+			if( $line1!='' ) {
+				echo $line1;
+			}
+			echo '">';
+			?>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="addressLine2" name="line2" placeholder="Line 2" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
+			<?php
+			echo 'value="';
+			if( $line2!='' ) {
+				echo $line2;
+			}
+			echo '">';
+			?>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="town" name="town" placeholder="Town" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
+			<?php
+			echo 'value="';
+			if( $town!='' ) {
+				echo $town;
+			}
+			echo '">';
+			?>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="county" name="county" placeholder="County" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
+			<?php
+			echo 'value="';
+			if( $county!='' ) {
+				echo $county;
+			}
+			echo '">';
+			?>
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" id="postcode" name="postcode" placeholder="Postcode" onkeyup="fieldCheck(this.id)" onfocusout="fieldCheckOut(this.id)"
+			<?php
+			echo 'value="';
+			if( $postcode!='' ) {
+				echo $postcode;
+			}
+			echo '">';
+			?>
+		</div>
 	</div>
 
-	<button type="submit" class="btn btn-success btn-block btn-lg">Continue</button>
+	<button type="submit" class="btn btn-success btn-block btn-lg continue">Continue</button>
 
 </div>
 

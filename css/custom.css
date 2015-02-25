@@ -3,7 +3,11 @@
 	margin-left: 1em;
 }
 
-#addressResult input:nth-child(n) {
+#addressResult .form-group {
+	margin: 0;
+}
+
+#addressResult .form-group:nth-child(n) input {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-left-radius: 0;
@@ -11,12 +15,12 @@
 	border-bottom-width: 0;
 }
 
-#addressResult input:first-child {
+#addressResult .form-group:first-child input {
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 }
 
-#addressResult input:last-child {
+#addressResult .form-group:last-child input {
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	border-bottom-width: 1px;

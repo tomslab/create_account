@@ -67,34 +67,7 @@
 
 <?php include('db/getDelivery.php'); ?>
 
-<!-- <div class="panel panel-default">
-	<div class="panel-heading">
-		<h4 class="panel-title">Delivery</h4>
-	</div>
-	<div class="panel-body">
-		<strong>Next day delivery</strong> (&#163;5.95) <a class="pull-right" href="#">edit</a>
-	</div>
-	<ul class="list-group">
-		<li class="list-group-item">
-			<address style="margin-bottom: 0;">
-				<strong>Tom Hedges</strong><br />
-				Blackwater Cottage, Church Road, East Bilney, Norfolk, NR20 4HN <a class="pull-right" href="#">edit</a>
-			</address>
-		</li>
-	</ul>
-</div> -->
-
 <?php include('db/getPayment.php'); ?>
-
-<!-- <div class="panel panel-default">
-	<div class="panel-heading">
-		<h4 class="panel-title"><i class="fa fa-lock"></i> Payment</h4>
-	</div>
-	<div class="panel-body">
-		Visa ending in xxxx <a class="pull-right" href="#">edit</a>
-	</div>
-</div> -->
-
 
 <form action="complete.php">
 

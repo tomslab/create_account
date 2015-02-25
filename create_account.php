@@ -86,7 +86,7 @@ include('head.php');
 		?>
 	</div>
 
-	<button type="submit" class="btn btn-success btn-block btn-lg">Create Account</button>
+	<button type="submit" class="btn btn-success btn-block btn-lg continue">Create Account</button>
 
 </form>
 

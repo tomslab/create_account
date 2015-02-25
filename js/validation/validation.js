@@ -86,17 +86,22 @@ var cardNamePass = true;
 var cardNameLength;
 
 // Expiry variables
-var expiryOut = false;
-var expiryPass = true;
-var expiryLength;
 var date;
 var thisYear;
 var thisMonth;
 
-// CVV variables
-var cvvOut = false;
-var cvvPass = true;
-var cvvLength;
+var expiryMMOut = false;
+var expiryMMPass = true;
+var expiryMMLength;
+
+var expiryYYOut = false;
+var expiryYYPass = true;
+var expiryYYLength;
+
+// csc variables
+var cscOut = false;
+var cscPass = true;
+var cscLength;
 
 
 
@@ -143,11 +148,14 @@ function fieldCheckOut(id) {
 		case 'cardName':
 			cardNameOut = true;
 			break;
-		case 'expiry':
-			expiryOut = true;
+		case 'expiryMM':
+			expiryMMOut = true;
 			break;
-		case 'cvv':
-			cvvOut = true;
+		case 'expiryYY':
+			expiryYYOut = true;
+			break;
+		case 'csc':
+			cscOut = true;
 			break;
 		default:
 			break;
@@ -228,14 +236,19 @@ function fieldCheck(id) {
 					cardNameValidator( id, value );
 				}
 				break;
-			case 'expiry':
-				if( expiryOut === true ) {
-					expiryValidator( id, value );
+			case 'expiryMM':
+				if( expiryMMOut === true ) {
+					expiryMMValidator( id, value );
 				}
 				break;
-			case 'cvv':
-				if( cvvOut === true ) {
-					cvvValidator( id, value );
+			case 'expiryYY':
+				if( expiryYYOut === true ) {
+					expiryYYValidator( id, value );
+				}
+				break;
+			case 'csc':
+				if( cscOut === true ) {
+					cscValidator( id, value );
 				}
 				break;
 			default:
@@ -288,11 +301,14 @@ function validationFeedback(id,result,message) {
 			case 'cardName':
 				cardNamePass = false;
 				break;
-			case 'expiry':
-				expiryPass = false;
+			case 'expiryMM':
+				expiryMMPass = false;
 				break;
-			case 'cvv':
-				cvvPass = false;
+			case 'expiryYY':
+				expiryYYPass = false;
+				break;
+			case 'csc':
+				cscPass = false;
 				break;
 			default:
 				break;
@@ -320,11 +336,11 @@ function validationFeedback(id,result,message) {
 // Function to enable or disable the continue button
 
 function continueCheck( message ) {
-	if( !emailPass || !firstNamePass || !lastNamePass || !passwordPass || !confirmPasswordPass || !addressLine1Pass || !addressLine2Pass || !townPass  || !countyPass || !postcodePass || !phoneNumberPass || !cardNumberPass || !cardNamePass || !expiryPass || !cvvPass ) {
+	if( !emailPass || !firstNamePass || !lastNamePass || !passwordPass || !confirmPasswordPass || !addressLine1Pass || !addressLine2Pass || !townPass  || !countyPass || !postcodePass || !phoneNumberPass || !cardNumberPass || !cardNamePass || !expiryMMPass || !expiryYYPass || !cscPass ) {
 		$( '.continue' ).attr('disabled',true); // Disables the continue button on the form
 		$( '#errors' ).slideDown(); // Makes the error visible to the user
 		//var errorVal = $( '#errors' ).html();
-		window.console.log(message);
+		// window.console.log(message);
 		if( message != undefined ) {
 			$( '#errors').html( '<strong>Error,</strong> ' + message ); // Applies the error message
 		}
@@ -378,11 +394,14 @@ function resetEverything( id ) {
 		case 'cardName':
 			cardNameOut = false;
 			break;
-		case 'expiry':
-			expiryOut = false;
+		case 'expiryMM':
+			expiryMMOut = false;
 			break;
-		case 'cvv':
-			cvvOut = false;
+		case 'expiryYY':
+			expiryYYOut = false;
+			break;
+		case 'csc':
+			cscOut = false;
 			break;
 		default:
 			break;
