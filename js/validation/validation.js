@@ -21,6 +21,26 @@ var oldDomainLength;
 var domainExtension;
 var message;
 
+// First name variables
+var firstNameOut = false;
+var firstNamePass = true;
+var firstNameLength;
+
+// Last name variables
+var lastNameOut = false;
+var lastNamePass = true;
+var lastNameLength;
+
+// Password variables
+var passwordOut = false;
+var passwordPass = true;
+var passwordLength;
+
+// Check password variables
+var confirmPasswordOut = false;
+var confirmPasswordPass = true;
+var confirmPasswordLength;
+
 // Address Line 1 variables
 var addressLine1Out = false;
 var addressLine1Pass = true;
@@ -87,6 +107,18 @@ function fieldCheckOut(id) {
 		case 'email':
 			emailOut = true;
 			break;
+		case 'firstName':
+			firstNameOut = true;
+			break;
+		case 'lastName':
+			lastNameOut = true;
+			break;
+		case 'password':
+			passwordOut = true;
+			break;
+		case 'confirmPassword':
+			confirmPasswordOut = true;
+			break;
 		case 'addressLine1':
 			addressLine1Out = true;
 			break;
@@ -127,71 +159,88 @@ function fieldCheckOut(id) {
 // Function to collect the input the user has made once fieldCheckOut has set to true
 
 function fieldCheck(id) {
-	value = $('#' + id).val().toLowerCase(); // Gets the value of the input and converts it to lower case
+	
+		value = $('#' + id).val().toLowerCase(); // Gets the value of the input and converts it to lower case
 
-	switch( id ) {
-		case 'email': // Is the id email?
-			if( emailOut === true ) {
-				window.console.log('foo');
-				emailValidator( id, value );
-			}
-			break;
-		case 'addressLine1': // Is the address line 1 incorrect?
-			if( addressLine1Out === true ) {
-				addressLine1Validator( id, value );
-				//console.log(id + ', ' + value);
-			}
-			break;
-		case 'addressLine2': // Is the address line 2 incorrect?
-			if( addressLine2Out === true ) {
-				addressLine2Validator( id, value );
-			}
-			break;
-		case 'town':
-			if( townOut === true ) {
-				townValidator( id, value );
-			}
-			break;
-		case 'county':
-			if( countyOut === true ) {
-				countyValidator( id, value );
-			}
-			break;
-		case 'postcode':
-			if( postcodeOut === true ) {
-				postcodeValidator( id, value );
-			}
-			break;
-		case 'phoneNumber':
-			if( phoneNumberOut === true ) {
-				phoneNumberValidator( id, value );
-			}
-			break;
-		case 'cardNumber':
-			if( cardNumberOut === true ) {
-				cardNumberValidator( id, value );
-			}
-			break;
-		case 'cardName':
-			if( cardNameOut === true ) {
-				cardNameValidator( id, value );
-			}
-			break;
-		case 'expiry':
-			if( expiryOut === true ) {
-				expiryValidator( id, value );
-			}
-			break;
-		case 'cvv':
-			if( cvvOut === true ) {
-				cvvValidator( id, value );
-			}
-			break;
-		default:
-			window.console.log('bar');
-			break;
-			//console.log('Default has been triggered!')
-	}
+		switch( id ) {
+			case 'email': // Is the id email?
+				if( emailOut === true ) {
+					emailValidator( id, value );
+				}
+				break;
+			case 'firstName':
+				if( firstNameOut === true ) {
+					firstNameValidator( id, value );
+				}
+				break;
+			case 'lastName':
+				if( lastNameOut === true ) {
+					lastNameValidator( id, value );
+				}
+				break;
+			case 'password':
+				if( passwordOut === true ) {
+					passwordValidator( id, value );
+				}
+				break;
+			case 'confirmPassword':
+				if( confirmPasswordOut === true ) {
+					confirmPasswordValidator( id, value );
+				}
+				break;
+			case 'addressLine1': // Is the address line 1 incorrect?
+				if( addressLine1Out === true ) {
+					addressLine1Validator( id, value );
+				}
+				break;
+			case 'addressLine2': // Is the address line 2 incorrect?
+				if( addressLine2Out === true ) {
+					addressLine2Validator( id, value );
+				}
+				break;
+			case 'town':
+				if( townOut === true ) {
+					townValidator( id, value );
+				}
+				break;
+			case 'county':
+				if( countyOut === true ) {
+					countyValidator( id, value );
+				}
+				break;
+			case 'postcode':
+				if( postcodeOut === true ) {
+					postcodeValidator( id, value );
+				}
+				break;
+			case 'phoneNumber':
+				if( phoneNumberOut === true ) {
+					phoneNumberValidator( id, value );
+				}
+				break;
+			case 'cardNumber':
+				if( cardNumberOut === true ) {
+					cardNumberValidator( id, value );
+				}
+				break;
+			case 'cardName':
+				if( cardNameOut === true ) {
+					cardNameValidator( id, value );
+				}
+				break;
+			case 'expiry':
+				if( expiryOut === true ) {
+					expiryValidator( id, value );
+				}
+				break;
+			case 'cvv':
+				if( cvvOut === true ) {
+					cvvValidator( id, value );
+				}
+				break;
+			default:
+				break;
+		}
 }
 
 
@@ -202,6 +251,18 @@ function validationFeedback(id,result,message) {
 		switch( id ) {
 			case 'email':
 				emailPass = false;
+				break;
+			case 'firstName':
+				firstNamePass = false;
+				break;
+			case 'lastName':
+				lastNamePass = false;
+				break;
+			case 'password':
+				passwordPass = false;
+				break;
+			case 'confirmPassword':
+				confirmPasswordPass = false;
 				break;
 			case 'addressLine1':
 				addressLine1Pass = false;
@@ -239,30 +300,91 @@ function validationFeedback(id,result,message) {
 		passer = false; // Sets email pass to false to stop other checks and success on this run
 		//console.log(passer);
 		$( '#' + id ).parent('div').removeClass('has-success').addClass('has-error'); // Sets parent div state to allow for style changes
-		$( '#errors').text(message); // Applies the error message
-		$( '#errors' ).css('display','block'); // Makes the error visible to the user
 		if( id != 'expiry' ) {
 			$( '#' + id + 'Status' ).replaceWith( $( '<i id="' + id + 'Status" class="fa fa-exclamation form-control-feedback"></i>' ) ); // Adds exclamation marker when there is a failure
 		}
-		continueCheck();
+		continueCheck( message );
+		//resetEverything( id );
 	} else if ( result === 'pass' ) {
 		$( '#' + id ).parent('div').removeClass('has-error').addClass('has-success'); // Sets parent div state to allow for style changes
-		$( '#errors' ).text(''); // Removes any error text
-		$( '#errors' ).css('display','none'); // Hides the error container
 		if( id != 'expiry' ) {
 			$( '#' + id + 'Status' ).replaceWith( $( '<i id="' + id + 'Status" class="fa fa-check form-control-feedback"></i>' ) ); // Adds check marker when the form validates correctly
 		}
-		continueCheck();
+		continueCheck( message );
+		//resetEverything( id );
 	}
+	resetEverything( id );
 }
 
 
 // Function to enable or disable the continue button
 
-function continueCheck() {
-	if( !emailPass || !addressLine1Pass || !addressLine2Pass || !townPass  || !countyPass || !postcodePass || !phoneNumberPass || !cardNumberPass || !cardNamePass || !expiryPass || !cvvPass ) {
+function continueCheck( message ) {
+	if( !emailPass || !firstNamePass || !lastNamePass || !passwordPass || !confirmPasswordPass || !addressLine1Pass || !addressLine2Pass || !townPass  || !countyPass || !postcodePass || !phoneNumberPass || !cardNumberPass || !cardNamePass || !expiryPass || !cvvPass ) {
 		$( '.continue' ).attr('disabled',true); // Disables the continue button on the form
+		$( '#errors' ).slideDown(); // Makes the error visible to the user
+		//var errorVal = $( '#errors' ).html();
+		window.console.log(message);
+		if( message != undefined ) {
+			$( '#errors').html( '<strong>Error,</strong> ' + message ); // Applies the error message
+		}
 	} else {
 		$( '.continue' ).attr('disabled',false); // Enables the continue button
+		$( '#errors' ).slideUp(); // Hides the error container
+		$( '#errors' ).html( '' ); // Removes any error text
+	}
+}
+
+function resetEverything( id ) {
+	switch( id ) {
+		case 'email':
+			emailOut = false;
+			break;
+		case 'firstName':
+			firstNameOut = false;
+			//firstNamePass = true;
+			break;
+		case 'lastName':
+			lastNameOut = false;
+			//lastNamePass = true;
+			break;
+		case 'password':
+			passwordOut = false;
+			break;
+		case 'confirmPassword':
+			confirmPasswordOut = false;
+			break;
+		case 'addressLine1':
+			addressLine1Out = false;
+			break;
+		case 'addressLine2':
+			addressLine2Out = false;
+			break;
+		case 'town':
+			townOut = false;
+			break;
+		case 'county':
+			countyOut = false;
+			break;
+		case 'postcode':
+			postcodeOut = false;
+			break;
+		case 'phoneNumber':
+			phoneNumberOut = false;
+			break;
+		case 'cardNumber':
+			cardNumberOut = false;
+			break;
+		case 'cardName':
+			cardNameOut = false;
+			break;
+		case 'expiry':
+			expiryOut = false;
+			break;
+		case 'cvv':
+			cvvOut = false;
+			break;
+		default:
+			break;
 	}
 }

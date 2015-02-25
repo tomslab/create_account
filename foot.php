@@ -11,6 +11,9 @@
 		<!-- Email -->
 		<script src="js/validation/email.js"></script>
 
+		<!-- Account -->
+		<script src="js/validation/account.js"></script>
+
 		<!-- Address -->
 		<script src="js/validation/address.js"></script>
 

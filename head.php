@@ -30,6 +30,4 @@
 
             <?php include('progress.php'); ?>
 
-            <div id="errors">
-                Theres a bloody error
-            </div>
+            <div id="errors" style="display:none;"></div>
